@@ -1,0 +1,75 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+header {
+    background-color: rgb(251, 207, 40);
+    opacity: 1;
+}
+
+footer {
+    background-color: white;
+}
+
+
+html {
+    position: relative;
+    min-height: 100%;
+    background-image: url('../BackGround.jpeg');
+    background-size: cover;
+    opacity: 1;
+}
+
+
+
+}
+
+body {
+    margin-bottom: 60px;
+    opacity: 1;
+}
+
+
+body.home, html.home {
+        background-color: transparent;
+    }
+
+body, html {
+    background-color: white;
+}
+
+.border {
+    background-color: white;
+}
+
+
+.white-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.text-stroked {
+    color: white;
+    font-weight: bold;
+    font-size: 3rem;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+
+.btn-lavender {
+    background-color: #9370DB;
+    color: white;
+    border: none;
+}
+
+    .btn-lavender:hover {
+        background-color: #6A5ACD;
+        color: white;
+    }

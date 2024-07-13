@@ -1,0 +1,27 @@
+﻿@model GymTracker.Models.Exercise
+
+@{
+    ViewData["Title"] = "Exercise Details";
+}
+
+<h1>Exercise Details</h1>
+
+<div class="card mt-4">
+    <div class="card-header bg-primary text-white">
+        <h4>Exercise Details</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">Exercise Name</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Name)</dd>
+            <dt class="col-sm-2">Description</dt>
+            <dd class="col-sm-10">@Html.DisplayFor(model => model.Description)</dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="text-right">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>

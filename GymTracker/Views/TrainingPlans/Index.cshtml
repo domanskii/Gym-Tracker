@@ -1,0 +1,46 @@
+﻿@model IEnumerable<GymTracker.Models.TrainingPlan>
+
+@{
+    ViewData["Title"] = "Training Plans";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Plan</a>
+</p>
+
+@* Sortowanie według nazwy planu treningowego *@
+<div>
+    <span>Sortowanie: </span>
+    <a asp-action="Index" class="btn btn-link">
+        Od A do Z
+    </a>
+    <a asp-action="Index" asp-route-sortOrder="name_desc" class="btn btn-link">
+        Od Z do A
+    </a>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>User</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@(ViewBag.Users.ContainsKey(item.UserId) ? ViewBag.Users[item.UserId].Email : "User not available")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

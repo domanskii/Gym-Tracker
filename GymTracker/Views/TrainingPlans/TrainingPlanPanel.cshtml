@@ -1,0 +1,36 @@
+﻿@model GymTracker.Models.TrainingPlan
+@{
+    Layout = "_Layout";
+}
+@if (Model != null)
+{
+    
+    <div class="training-plan-panel">
+        <h2>Plan Treningowy: @Model.Name</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Ćwiczenie</th>
+                <th>Serie</th>
+                <th>Powtórzenia</th>
+                <th>Ciężar</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var exercisePlan in Model.ExercisePlans)
+            {
+                <tr>
+                    <td>@exercisePlan.Exercise.Name</td>
+                    <td>@exercisePlan.Sets</td>
+                    <td>@exercisePlan.Repetitions</td>
+                    <td>@exercisePlan.Weight kg</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>Nie znaleziono planu treningowego.</p>
+}

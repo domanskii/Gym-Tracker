@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Trening personalny";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 text-center mb-4">
+            <img src="~/personal.jpg" class="img-fluid" alt="Opis zdjęcia 1">
+        </div>
+
+        <div class="col-md-6">
+            <div class="bg-white p-4">
+                <h3>Trening personalny</h3>
+                <p>
+                    Nasz program "Trening personalny" to indywidualnie dostosowany plan treningowy, który pomoże Ci osiągnąć Twoje cele fitness pod okiem doświadczonego trenera personalnego.
+                    W ramach tego programu oferujemy:
+                </p>
+                <ul>
+                    <li><b>Indywidualne podejście:</b> Każdy plan jest tworzony specjalnie dla Ciebie, uwzględniając Twoje cele, poziom zaawansowania oraz preferencje.</li>
+                    <li><b>Zróżnicowane metody treningowe:</b> Programy obejmują trening siłowy, wytrzymałościowy oraz elementy treningu funkcjonalnego, zapewniając wszechstronny rozwój fizyczny.</li>
+                    <li><b>Porady dietetyczne:</b> Otrzymasz rekomendacje dietetyczne, które wspomogą Twoje treningi i przyspieszą osiąganie zamierzonych rezultatów.</li>
+                    <li><b>Monitorowanie postępów:</b> Regularne konsultacje i analizy postępów pozwolą na optymalizację planu i maksymalizację wyników.</li>
+                </ul>
+
+                <h4>Czas trwania i częstotliwość treningów:</h4>
+                <p>Program "Trening personalny" jest dostosowany do Twojego trybu życia. Treningi mogą odbywać się od <b>2 do 5 razy w tygodniu</b>, a ich czas trwania wynosi zazwyczaj <b>od 45 minut do 90 minut</b>, w zależności od intensywności i rodzaju ćwiczeń.</p>
+
+                <div class="text-center mt-3">
+                    <a href="#" class="btn btn-lavender">Skontaktuj się z nami</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="bg-white p-4 rounded shadow-sm">
+                <h4 class="mb-3">Przykładowy Cennik</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Ilość dni ćwiczeń</th>
+                            <th scope="col">Cena</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2 razy w tygodniu</td>
+                            <td>199 zł/miesiąc</td>
+                        </tr>
+                        <tr>
+                            <td>3 razy w tygodniu</td>
+                            <td>279 zł/miesiąc</td>
+                        </tr>
+                        <tr>
+                            <td>4 razy w tygodniu</td>
+                            <td>349 zł/miesiąc</td>
+                        </tr>
+                        <tr>
+                            <td>5 razy w tygodniu</td>
+                            <td>399 zł/miesiąc</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-muted">Uwaga! Cena może ulec zmianie zgodnie z personalizacją ćwiczeń.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12 text-center">
+            <a href="@Url.Action("Index", "Home")" class="btn btn-lavender mt-3">Wróć do strony głównej</a>
+        </div>
+    </div>
+</div>

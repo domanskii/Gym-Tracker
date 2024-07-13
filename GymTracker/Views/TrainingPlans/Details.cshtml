@@ -1,0 +1,41 @@
+﻿@model GymTracker.Models.TrainingPlan
+
+@{
+    ViewData["Title"] = "Training Plan Details";
+}
+
+<h2 class="text-center mt-4">@Model.Name</h2>
+
+<div class="card mt-4">
+    <div class="card-header bg-primary text-white">
+        <h4>Exercises</h4>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Exercise</th>
+                    <th scope="col">Sets</th>
+                    <th scope="col">Repetitions</th>
+                    <th scope="col">Weight (kg)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var exercise in Model.ExercisePlans)
+                {
+                    <tr>
+                        <td>@exercise.Exercise.Name</td>
+                        <td>@exercise.Sets</td>
+                        <td>@exercise.Repetitions</td>
+                        <td>@exercise.Weight</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="mt-4 text-center">
+    <a href="@Url.Action("Edit", "TrainingPlans", new { id = Model.Id })" class="btn btn-warning mr-2">Edit</a>
+    <a href="@Url.Action("Index", "TrainingPlans")" class="btn btn-secondary">Back to List</a>
+</div>

@@ -1,0 +1,70 @@
+﻿@model GymTracker.Models.TrainingPlan
+
+@{
+    ViewData["Title"] = "Create Training Plan";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" placeholder="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserId" class="control-label">User</label>
+        <select asp-for="UserId" asp-items="@ViewBag.Users" class="form-control"></select>
+    </div>
+
+    <div id="exercises-list">
+        @for (int i = 0; i < Model.ExercisePlans.Count; i++)
+        {
+            <div class="form-group" id="exercise-@i">
+                <label>Exercise</label>
+                <select asp-for="@Model.ExercisePlans[i].ExerciseId" class="form-control" asp-items="ViewBag.Exercises" placeholder="Exercise"></select>
+                <input asp-for="@Model.ExercisePlans[i].Sets" class="form-control" placeholder="Sets" />
+                <input asp-for="@Model.ExercisePlans[i].Repetitions" class="form-control" placeholder="Repetitions" />
+                <input asp-for="@Model.ExercisePlans[i].Weight" class="form-control" placeholder="Weight (kg)" />
+                <button type="button" onclick="removeExercise(@i)" class="btn btn-danger">Delete</button>
+            </div>
+        }
+    </div>
+
+    <button type="button" onclick="addExercise()" class="btn btn-secondary">Add Exercise</button>
+    <button type="submit" class="btn btn-success">Create Plan</button>
+    <br><a asp-action="Index">Back to List</a></br>
+
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        function addExercise() {
+            var index = $("#exercises-list").children().length;
+            var exercises = @Html.Raw(Json.Serialize(ViewBag.Exercises));
+            var selectHtml = exercises.reduce((acc, exercise) => {
+                return acc + `<option value="${exercise.value}">${exercise.text}</option>`;
+            }, '');
+
+            var newItem = `<div class="form-group" id="exercise-${index}">
+                        <label for="Exercises_${index}__ExerciseId" class="control-label">Exercise</label>
+                        <select name="ExercisePlans[${index}].ExerciseId" class="form-control">${selectHtml}</select>
+                        <input name="ExercisePlans[${index}].Repetitions" class="form-control" placeholder="Repetitions"/>
+                        <input name="ExercisePlans[${index}].Sets" class="form-control" placeholder="Sets"/>
+                        <input name="ExercisePlans[${index}].Weight" class="form-control" placeholder="Weight (kg)"/>
+                        <button type="button" onclick="removeExercise(${index})" class="btn btn-danger">Delete</button>
+                    </div>`;
+            $("#exercises-list").append(newItem);
+        }
+
+        function removeExercise(index) {
+            $("#exercise-" + index).remove();
+        }
+    </script>
+}
